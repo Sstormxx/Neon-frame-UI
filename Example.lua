@@ -1,12 +1,5 @@
 local NeonFrame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sstormxx/Neon-frame-UI/refs/heads/main/UI.lua"))()
 
---// CREATE WINDOW
-local Window = NeonFrame:CreateWindow({
-    Title = "NEON FRAME",
-    Size = UDim2.new(0, 650, 0, 450),
-    ToggleKey = Enum.KeyCode.RightControl -- optional, defaults to RightControl
-})
-
 --// CREATE TABS
 local MainTab = Window:CreateTab({Name = "Main"})
 local VisualsTab = Window:CreateTab({Name = "Visuals"})
