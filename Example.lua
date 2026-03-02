@@ -1,4 +1,4 @@
-local NeonFrame = loadstring(game:HttpGet("https://your-url-here.lua"))()
+local NeonFrame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sstormxx/Neon-frame-UI/refs/heads/main/UI.lua"))()
 
 --// CREATE WINDOW
 local Window = NeonFrame.CreateWindow({
