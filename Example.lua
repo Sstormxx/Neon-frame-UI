@@ -1,122 +1,108 @@
-local NeonFrame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sstormxx/Neon-frame-UI/refs/heads/main/UI.lua"))()
+local NeonFrame = loadstring(game:HttpGet("https://your-url-here.lua"))()
 
---// CREATE WINDOW FIRST
+--// CREATE WINDOW
 local Window = NeonFrame.CreateWindow({
     Title = "MY SCRIPT",
     Size = UDim2.new(0, 600, 0, 400)
 })
 
 --// CREATE TABS
-local MainTab = Window:CreateTab({Name = "Main"})
-local VisualsTab = Window:CreateTab({Name = "Visuals"})
-local SettingsTab = Window:CreateTab({Name = "Settings"})
+local MainTab = Window.CreateTab({Name = "Main"})
+local SettingsTab = Window.CreateTab({Name = "Settings"})
 
---// CREATE NOTIFICATION
-NeonFrame:Notify({
-    Title = "Notification Title",
-    Content = "This is the notification message content",
-    Duration = 10, -- seconds, 0 = infinite
-    Type = "Success", -- "Info", "Success", "Error", "Warning"
+--// NOTIFICATION
+NeonFrame.Notify({
+    Title = "Title",
+    Content = "Message",
+    Duration = 10,
+    Type = "Success",
     ButtonText = "Okay!",
     Callback = function()
-        print("Notification closed!")
+        print("Closed!")
     end
 })
 
---// MAIN TAB ELEMENTS
-MainTab:CreateSection({Name = "GENERAL"})
+--// SECTION
+MainTab.CreateSection({Name = "FEATURES"})
 
-MainTab:CreateButton({
-    Name = "Click Me!",
+--// BUTTON
+MainTab.CreateButton({
+    Name = "Click Me",
     Callback = function()
-        print("Button clicked!")
+        print("Clicked!")
     end
 })
 
-local Toggle = MainTab:CreateToggle({
-    Name = "Enable Feature",
+--// TOGGLE
+local Toggle = MainTab.CreateToggle({
+    Name = "Auto Farm",
     Default = false,
     Callback = function(value)
         print("Toggle:", value)
     end
 })
+Toggle:Set(true)
+local state = Toggle:Get()
 
--- Toggle methods:
-Toggle:Set(true)  -- Set to true
-Toggle:Set(false) -- Set to false
-local state = Toggle:Get() -- Get current state (true/false)
-
-local Slider = MainTab:CreateSlider({
+--// SLIDER
+local Slider = MainTab.CreateSlider({
     Name = "Speed",
     Min = 0,
     Max = 100,
     Default = 50,
-    Rounding = 0, -- decimal places
+    Rounding = 0,
     Callback = function(value)
-        print("Slider:", value)
+        print("Value:", value)
     end
 })
+Slider:Set(75)
+local val = Slider:Get()
 
--- Slider methods:
-Slider:Set(75)  -- Set to 75
-local val = Slider:Get() -- Get current value (number)
-
---// VISUALS TAB ELEMENTS
-VisualsTab:CreateSection({Name = "ESP"})
-
-VisualsTab:CreateDropdown({
-    Name = "ESP Type",
-    Options = {"Boxes", "Chams", "Skeleton", "Off"},
-    Default = "Boxes",
+--// DROPDOWN
+local Dropdown = MainTab.CreateDropdown({
+    Name = "Select",
+    Options = {"A", "B", "C"},
+    Default = "A",
     Callback = function(selected)
         print("Selected:", selected)
     end
 })
+Dropdown:Set("B")
+local sel = Dropdown:Get()
 
--- Dropdown methods (if you saved the return):
--- Dropdown:Set("Chams")  -- Select "Chams"
--- local sel = Dropdown:Get() -- Get current selection (string)
-
---// SETTINGS TAB ELEMENTS
-SettingsTab:CreateSection({Name = "CONFIG"})
-
-SettingsTab:CreateTextBox({
-    Name = "Username",
-    Default = "", -- starting text
-    Placeholder = "Enter username...", -- grey hint text
-    NumbersOnly = false, -- set to true to only allow numbers
+--// TEXTBOX
+local TextBox = MainTab.CreateTextBox({
+    Name = "Input",
+    Default = "",
+    Placeholder = "Type here...",
+    NumbersOnly = false,
     Callback = function(text, enterPressed)
-        if enterPressed then
-            print("Entered:", text)
-        end
+        print("Text:", text)
     end
 })
+TextBox:Set("Hello")
+local txt = TextBox:Get()
 
--- TextBox methods (if you saved the return):
--- TextBox:Set("Hello")  -- Set text
--- local txt = TextBox:Get() -- Get current text (string)
-
-SettingsTab:CreateLabel({
-    Text = "Made with NeonFrame UI",
-    Color = Color3.fromRGB(0, 255, 255), -- optional, defaults to grey
-    Size = 13, -- optional text size
-    Bold = false, -- optional, set to true for bold
-    Alignment = Enum.TextXAlignment.Center -- optional, Left/Center/Right
+--// LABEL
+local Label = MainTab.CreateLabel({
+    Text = "Hello World",
+    Color = Color3.fromRGB(0, 255, 255),
+    Size = 14,
+    Bold = false,
+    Alignment = Enum.TextXAlignment.Left
 })
+Label:Set("New Text")
+local lbl = Label:Get()
 
-NeonFrame:CreateWindow({Title, Size, ToggleKey})
-NeonFrame:Notify({Title, Content, Duration, Type, ButtonText, Callback})
-
-Window:CreateTab({Name})
-
-Tab:CreateSection({Name})
-Tab:CreateButton({Name, Callback})
-Tab:CreateToggle({Name, Default, Callback}) → returns {Set, Get}
-Tab:CreateSlider({Name, Min, Max, Default, Rounding, Callback}) → returns {Set, Get}
-Tab:CreateDropdown({Name, Options, Default, Callback}) → returns {Set, Get}
-Tab:CreateTextBox({Name, Default, Placeholder, NumbersOnly, Callback}) → returns {Set, Get}
-Tab:CreateLabel({Text, Color, Size, Bold, Alignment}) → returns {Set, Get}
-
-local Notif = NeonFrame:Notify({...})
-Notif:Close() -- close manually
-Notif:Update({Title = "New", Content = "New text"}) -- update text
+| Function         | Parameters                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| `CreateWindow`   | `Title` (string), `Size` (UDim2), `ToggleKey` (Enum.KeyCode, optional)                                |
+| `Notify`         | `Title`, `Content`, `Duration`, `Type` ("Info"/"Success"/"Error"/"Warning"), `ButtonText`, `Callback` |
+| `CreateTab`      | `Name` (string)                                                                                       |
+| `CreateSection`  | `Name` (string)                                                                                       |
+| `CreateButton`   | `Name`, `Callback` (function)                                                                         |
+| `CreateToggle`   | `Name`, `Default` (bool), `Callback` (function)                                                       |
+| `CreateSlider`   | `Name`, `Min`, `Max`, `Default`, `Rounding`, `Callback`                                               |
+| `CreateDropdown` | `Name`, `Options` (table), `Default`, `Callback`                                                      |
+| `CreateTextBox`  | `Name`, `Default`, `Placeholder`, `NumbersOnly` (bool), `Callback`                                    |
+| `CreateLabel`    | `Text`, `Color`, `Size`, `Bold` (bool), `Alignment`                                                   |
