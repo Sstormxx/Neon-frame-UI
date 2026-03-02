@@ -1,4 +1,4 @@
-local NeonFrame = loadstring(game:HttpGet("YOUR_URL_HERE"))() -- Or require the module
+local NeonFrame = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sstormxx/Neon-frame-UI/refs/heads/main/UI.lua"))()
 
 local Window = NeonFrame:CreateWindow({
 	Title = "NEON FRAME",
