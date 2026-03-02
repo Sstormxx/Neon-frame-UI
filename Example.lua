@@ -1,5 +1,3 @@
---// Put this in a LocalScript in StarterPlayerScripts or StarterGui
-
 local NeonFrame = loadstring(game:HttpGet("YOUR_URL_HERE"))() -- Or require the module
 
 local Window = NeonFrame:CreateWindow({
@@ -79,3 +77,20 @@ SettingsTab:CreateLabel({
 	Color = Color3.fromRGB(0, 255, 255),
 	Alignment = Enum.TextXAlignment.Center
 })
+
+Return Object Methods
+Toggle Returns:
+:Set(boolean) - Set toggle state
+:Get() - Returns current boolean state
+Slider Returns:
+:Set(number) - Set slider value
+:Get() - Returns current number value
+Dropdown Returns:
+:Set(string) - Set selected option
+:Get() - Returns current selected string
+TextBox Returns:
+:Set(string) - Set text value
+:Get() - Returns current text string
+Label Returns:
+:Set(string) - Update label text
+:Get() - Returns current text
