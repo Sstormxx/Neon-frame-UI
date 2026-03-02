@@ -105,6 +105,19 @@ SettingsTab:CreateLabel({
     Alignment = Enum.TextXAlignment.Center -- optional, Left/Center/Right
 })
 
--- Label methods (if you saved the return):
--- Label:Set("New text")  -- Update text
--- local lbl = Label:Get() -- Get current text (string)
+NeonFrame:CreateWindow({Title, Size, ToggleKey})
+NeonFrame:Notify({Title, Content, Duration, Type, ButtonText, Callback})
+
+Window:CreateTab({Name})
+
+Tab:CreateSection({Name})
+Tab:CreateButton({Name, Callback})
+Tab:CreateToggle({Name, Default, Callback}) → returns {Set, Get}
+Tab:CreateSlider({Name, Min, Max, Default, Rounding, Callback}) → returns {Set, Get}
+Tab:CreateDropdown({Name, Options, Default, Callback}) → returns {Set, Get}
+Tab:CreateTextBox({Name, Default, Placeholder, NumbersOnly, Callback}) → returns {Set, Get}
+Tab:CreateLabel({Text, Color, Size, Bold, Alignment}) → returns {Set, Get}
+
+local Notif = NeonFrame:Notify({...})
+Notif:Close() -- close manually
+Notif:Update({Title = "New", Content = "New text"}) -- update text
