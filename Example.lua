@@ -10,7 +10,7 @@ local Window = NeonFrame.CreateWindow({
 local MainTab = Window.CreateTab({Name = "Main"})
 local SettingsTab = Window.CreateTab({Name = "Settings"})
 
---// CREATE TITLE
+--// CREATE NOTIFICATION
 NeonFrame.Notify({
 	Title = "Title",
 	Content = "Message",
