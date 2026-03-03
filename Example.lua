@@ -27,7 +27,7 @@ MainTab.CreateSection({Name = "FEATURES"})
 
 --// CREATE BUTTON
 MainTab.CreateButton({
-	Name = "Click Me",
+	Name = "Button",
 	Callback = function()
 		print("Clicked!")
 	end
@@ -35,7 +35,7 @@ MainTab.CreateButton({
 
 --// CREATE TOGGLE
 local Toggle = MainTab.CreateToggle({
-	Name = "Auto Farm",
+	Name = "Toggle",
 	Default = false,
 	Callback = function(value)
 		print("Toggle:", value)
@@ -46,7 +46,7 @@ local Toggle = MainTab.CreateToggle({
 
 --// CREATE SLIDER
 local Slider = MainTab.CreateSlider({
-	Name = "Speed",
+	Name = "Slider",
 	Min = 0,
 	Max = 100,
 	Default = 50,
@@ -60,7 +60,7 @@ local Slider = MainTab.CreateSlider({
 
 --// CREATE DROPDOWN
 local Dropdown = MainTab.CreateDropdown({
-	Name = "Select",
+	Name = "Dropdown",
 	Options = {"A", "B", "C"},
 	Default = "A",
 	Callback = function(selected)
@@ -72,7 +72,7 @@ local Dropdown = MainTab.CreateDropdown({
 
 --// CREATE TEXTBOX
 local TextBox = MainTab.CreateTextBox({
-	Name = "Input",
+	Name = "Textbox",
 	Default = "",
 	Placeholder = "Type here...",
 	NumbersOnly = false,
@@ -84,7 +84,7 @@ local TextBox = MainTab.CreateTextBox({
 
 --// CREATE LABEL
 local Label = MainTab.CreateLabel({
-	Text = "Hello World",
+	Text = "This is a label",
 	Color = Color3.fromRGB(0, 255, 255),
 	Size = 14,
 	Bold = false,
