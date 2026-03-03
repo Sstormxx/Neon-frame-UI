@@ -6,9 +6,11 @@ local Window = NeonFrame.CreateWindow({
 	Size = UDim2.new(0, 600, 0, 400)
 })
 
+--// CREATE A TAB
 local MainTab = Window.CreateTab({Name = "Main"})
 local SettingsTab = Window.CreateTab({Name = "Settings"})
 
+--// CREATE TITLE
 NeonFrame.Notify({
 	Title = "Title",
 	Content = "Message",
@@ -20,8 +22,10 @@ NeonFrame.Notify({
 	end
 })
 
+--// CREATE SECTION
 MainTab.CreateSection({Name = "FEATURES"})
 
+--// CREATE BUTTON
 MainTab.CreateButton({
 	Name = "Click Me",
 	Callback = function()
@@ -29,6 +33,7 @@ MainTab.CreateButton({
 	end
 })
 
+--// CREATE TOGGLE
 local Toggle = MainTab.CreateToggle({
 	Name = "Auto Farm",
 	Default = false,
@@ -36,9 +41,11 @@ local Toggle = MainTab.CreateToggle({
 		print("Toggle:", value)
 	end
 })
+
 Toggle:Set(true)
 local state = Toggle:Get()
 
+--// CREATE SLIDER
 local Slider = MainTab.CreateSlider({
 	Name = "Speed",
 	Min = 0,
@@ -49,9 +56,11 @@ local Slider = MainTab.CreateSlider({
 		print("Value:", value)
 	end
 })
+
 Slider:Set(75)
 local val = Slider:Get()
 
+--// CREATE DROPDOWN
 local Dropdown = MainTab.CreateDropdown({
 	Name = "Select",
 	Options = {"A", "B", "C"},
@@ -60,9 +69,11 @@ local Dropdown = MainTab.CreateDropdown({
 		print("Selected:", selected)
 	end
 })
+
 Dropdown:Set("B")
 local sel = Dropdown:Get()
 
+--// CREATE TEXTBOX
 local TextBox = MainTab.CreateTextBox({
 	Name = "Input",
 	Default = "",
@@ -72,9 +83,12 @@ local TextBox = MainTab.CreateTextBox({
 		print("Text:", text)
 	end
 })
+
+
 TextBox:Set("Hello")
 local txt = TextBox:Get()
 
+--// CREATE LABEL
 local Label = MainTab.CreateLabel({
 	Text = "Hello World",
 	Color = Color3.fromRGB(0, 255, 255),
@@ -82,6 +96,8 @@ local Label = MainTab.CreateLabel({
 	Bold = false,
 	Alignment = Enum.TextXAlignment.Left
 })
+
+
 Label:Set("New Text")
 local lbl = Label:Get()
 
