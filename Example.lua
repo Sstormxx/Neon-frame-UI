@@ -42,8 +42,7 @@ local Toggle = MainTab.CreateToggle({
 	end
 })
 
-Toggle:Set(true)
-local state = Toggle:Get()
+
 
 --// CREATE SLIDER
 local Slider = MainTab.CreateSlider({
@@ -57,8 +56,7 @@ local Slider = MainTab.CreateSlider({
 	end
 })
 
-Slider:Set(75)
-local val = Slider:Get()
+
 
 --// CREATE DROPDOWN
 local Dropdown = MainTab.CreateDropdown({
@@ -70,8 +68,7 @@ local Dropdown = MainTab.CreateDropdown({
 	end
 })
 
-Dropdown:Set("B")
-local sel = Dropdown:Get()
+
 
 --// CREATE TEXTBOX
 local TextBox = MainTab.CreateTextBox({
@@ -85,9 +82,6 @@ local TextBox = MainTab.CreateTextBox({
 })
 
 
-TextBox:Set("Hello")
-local txt = TextBox:Get()
-
 --// CREATE LABEL
 local Label = MainTab.CreateLabel({
 	Text = "Hello World",
@@ -97,9 +91,6 @@ local Label = MainTab.CreateLabel({
 	Alignment = Enum.TextXAlignment.Left
 })
 
-
-Label:Set("New Text")
-local lbl = Label:Get()
 
 | Function         | Parameters                                                                                            |
 | ---------------- | ----------------------------------------------------------------------------------------------------- |
